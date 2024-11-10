@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ProjecteJocFinal.sln"
+    "dotnet.defaultSolution": "Esenaris-LeilaChahbouni-v2.sln"
 }

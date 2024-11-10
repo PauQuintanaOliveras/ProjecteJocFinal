@@ -4,11 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-<<<<<<< HEAD
-  productGUID: 0983df7bb9bbc6799b7dac5c0d3f863a
-=======
   productGUID: 21723333294681f4892c2d8098b21224
->>>>>>> d3d1a66 (Finalitzat part de pantalla inicial)
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -17,11 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-<<<<<<< HEAD
-  productName: ProjecteJocFinal
-=======
   productName: Esenaris-LeilaChahbouni
->>>>>>> d3d1a66 (Finalitzat part de pantalla inicial)
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -291,9 +283,6 @@ PlayerSettings:
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
   m_BuildTargetIcons: []
-<<<<<<< HEAD
-  m_BuildTargetPlatformIcons: []
-=======
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
@@ -387,7 +376,6 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
->>>>>>> d3d1a66 (Finalitzat part de pantalla inicial)
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
     m_StaticBatching: 1
@@ -781,22 +769,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-<<<<<<< HEAD
-  metroPackageName: ProjecteJocFinal
-=======
   metroPackageName: Esenaris-LeilaChahbouni
->>>>>>> d3d1a66 (Finalitzat part de pantalla inicial)
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-<<<<<<< HEAD
-  metroApplicationDescription: ProjecteJocFinal
-=======
   metroApplicationDescription: Esenaris-LeilaChahbouni
->>>>>>> d3d1a66 (Finalitzat part de pantalla inicial)
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -866,19 +846,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-<<<<<<< HEAD
-  cloudProjectId: bf96a99e-22b1-4962-b364-e51a58040260
-  framebufferDepthMemorylessMode: 0
-  qualitySettingsNames: []
-  projectName: ProjecteJocFinal
-  organizationId: pauquintana
-=======
   cloudProjectId: 1c208358-c2a1-4b14-b673-4f3cf8135313
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Esenaris-LeilaChahbouni
   organizationId: leila_chau
->>>>>>> d3d1a66 (Finalitzat part de pantalla inicial)
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
