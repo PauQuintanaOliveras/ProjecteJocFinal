@@ -16,11 +16,11 @@ public class ReduirObjecte : MonoBehaviour
             // Calcula el nuevo tamaño basado en la velocidad y el tiempo transcurrido
             Vector3 newScale = transform.localScale - Vector3.one * shrinkSpeed * Time.deltaTime;
 
-            // Asegura que el tamaño no baje de cero
+            // Asegura que l'objecte no sigui menor al Limit
            newScale = new Vector3(
-               Mathf.Max(newScale.x, 0),
-               Mathf.Max(newScale.y, 0),
-               Mathf.Max(newScale.z, 0)
+               Mathf.Max(newScale.x, 0.001f),
+               Mathf.Max(newScale.y, 0.001f),
+               Mathf.Max(newScale.z, 0.001f)
            );
 
             // Aplica el nuevo tamaño al objeto
@@ -28,8 +28,16 @@ public class ReduirObjecte : MonoBehaviour
         }
         else
         {
+            if(gameObject == null){
+
+            Debug.Log("Apagant...");
+
+            Application.Quit();
+            }
             // Si el objeto es suficientemente pequeño, destrúyelo
             Destroy(gameObject);
+            Debug.Log("AAA");
+            
         }
     }
 }
