@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;  // Asegúrate de incluir esta línea
+using UnityEngine.SceneManagement;
 
 public class Hakai : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class Hakai : MonoBehaviour
 
         // Destruir el objeto después de completar la animación
         Destroy(gameObject);
+        SceneManager.LoadScene("LvlPractica");
         
     }
 }
