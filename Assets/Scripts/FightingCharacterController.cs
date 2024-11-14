@@ -19,6 +19,8 @@ public class FightingCharacterController : MonoBehaviour
     public float punchRange = 2.0f;
     //Temps despera per a poder tornar a pegar
     public float punchCooldown = 1.0f;
+    //Força amb la que el personatge empeñara quan pegui.
+    public float hitForce = 1.0f;
     //Segons de aturdiment que rebra al ser pegat
     public float stunDuration = 0.5f;
     //Velocitat a la que s'aixeca quan cau
@@ -80,13 +82,17 @@ public class FightingCharacterController : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.forward, out hit, punchRange))//detecta si el raig colisiona amb alguna cosa dins el rang del personage
             {
                 FightingCharacterController eTarget = hit.collider.GetComponent<FightingCharacterController>(); //agafa el controllador del objectiu
-                if (etarget != null)//si no es null
+                if (eTarget != null)//si no es null
                 {
                     eTarget.GetPunched(); // activa el metoda de ser pegat del objectiu.
                 }
-                Rigidbody pTarget = hit.collider.GetComponent<rigidbody>();
+                Rigidbody pTarget = hit.collider.GetComponent<Rigidbody>();
                 if(pTarget != null){
-                    pTarget.AddForce(Vector3)
+                    //direccio del impacte
+                    Vector3 pushDirection = (hit.transform.position - transform.position).normalized;
+                    //empeny l'objectiu en la direccio del impacte i una mica amont.
+                    pTarget.AddForce((pushDirection + Vector3.up) * hitForce, ForceMode.Impulse);
+                    //pTarget.AddForce((-transform.forward + Vector3.up) * hitForce, ForceMode.Impulse);
                 }
             }
         }
