@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class FightingCharacterController : MonoBehaviour
+
+
 {
     public bool isDead = false;
     public Slider slider;
     public float damage = 5.0f;
+    public Animator animator;
     public bool isCameraReversed = true;
     //Multiplicador de la velocitat
     public float speed = 5.0f;
@@ -94,6 +97,8 @@ public class FightingCharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)) // detecta si s'apreta la tecla q 
         {
             lastPunchTime = Time.time; //guarda el temps en el que s'ha pegat
+            animator.SetBool("Punch", true);
+            Debug.Log("Punch True");
 
             RaycastHit hit; //Llança un raycast
             if (Physics.Raycast(transform.position, transform.forward, out hit, punchRange))//detecta si el raig colisiona amb alguna cosa dins el rang del personage
@@ -113,7 +118,16 @@ public class FightingCharacterController : MonoBehaviour
                     //pTarget.AddForce((-transform.forward + Vector3.up) * hitForce, ForceMode.Impulse);
                 }
             }
+            StartCoroutine(ResetBool());
         }
+            
+    }
+     private System.Collections.IEnumerator ResetBool()
+    {
+        // Esperar al seguent Frame per assegurar que l'animator detecta el Canvi de False a true abans de tornar a ser false
+        yield return null;
+        animator.SetBool("Punch", false);
+        Debug.Log("Punch False");
     }
     //gestiona ser colpejat
     public void GetPunched(float damage)

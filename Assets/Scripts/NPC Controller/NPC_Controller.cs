@@ -67,7 +67,7 @@ public class NPC_Controller : MonoBehaviour
         if (Time.time - lastPunchTime < punchCooldown) return;
 
         lastPunchTime = Time.time;
-        animator.SetBool("Atacar", true);
+        animator.SetBool("Punch", true);
         Debug.Log("Enemic: Cop de Puny");
 
         FightingCharacterController eTarget = target.GetComponent<FightingCharacterController>();
@@ -86,6 +86,16 @@ public class NPC_Controller : MonoBehaviour
             pTarget.AddForce(attackDirection * punchForce, ForceMode.Impulse);
         }
         
+     StartCoroutine(ResetBool());
+        
+            
+    }
+     private System.Collections.IEnumerator ResetBool()
+    {
+        // Esperar al seguent Frame per assegurar que l'animator detecta el Canvi de False a true abans de tornar a ser false
+        yield return null;
+        animator.SetBool("Punch", false);
+        Debug.Log("Punch False");
     }
 
     public void GetPunched(float damage)
