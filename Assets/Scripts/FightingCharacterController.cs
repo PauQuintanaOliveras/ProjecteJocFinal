@@ -25,6 +25,8 @@ public class FightingCharacterController : MonoBehaviour
     public float stunDuration = 0.5f;
     //Velocitat a la que s'aixeca quan cau
     public float uprightCorrectionSpeed = 5f;
+    //velocitat a la que gira el personatge
+    public float rotationSpeed = 10f;
     // Rigidbody del model del persontage
     private Rigidbody rb;
     //Boolea que indica si el personatge a tocat el terra des de l'ultim cop que ha saltat.
@@ -51,15 +53,31 @@ public class FightingCharacterController : MonoBehaviour
         HandlePunch();      //Gestiona els atacs del jugador
         CorrectUpright();   //Corregeix la inclinacio del personatge en cas de que fos incorrecte
     }
-    
-    private void HandleMovement()
-    {
-        float moveX = Input.GetAxis("Horizontal"); // Agafa la delta de moviment del control horizontal
-        float moveZ = Input.GetAxis("Vertical"); // Agafa la delta de moviment del control frontal 
 
-        Vector3 move = new Vector3(moveX, 0, moveZ).normalized * speed; //Ajunta els deltes de moviment dels eixos X i Z els normalitza i els multiplica per la velocitat
-        rb.MovePosition(transform.position + move * Time.deltaTime); // Mou el personatge a la seva posicio mes el delta de moviment multiplicat per el deltaTime
+    private void HandleMovement()
+{
+    float moveX = Input.GetAxis("Horizontal"); // Agafa la delta de moviment del control horizontal
+    float moveZ = Input.GetAxis("Vertical"); // Agafa la delta de moviment del control frontal 
+
+    Vector3 move = new Vector3(moveX, 0, moveZ).normalized * speed; // Calcula el vector de moviment
+    rb.MovePosition(transform.position + move * Time.deltaTime); // Mou el personatge
+
+    // Make the character face the movement direction if there's movement
+    if (move != Vector3.zero)
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(move); // Crea la rotació en la direcció del moviment
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime); // Aplica la rotació gradualment
     }
+}
+
+    //private void HandleMovement()
+    //{
+    //    float moveX = Input.GetAxis("Horizontal"); // Agafa la delta de moviment del control horizontal
+    //    float moveZ = Input.GetAxis("Vertical"); // Agafa la delta de moviment del control frontal 
+
+    //    Vector3 move = new Vector3(moveX, 0, moveZ).normalized * speed; //Ajunta els deltes de moviment dels eixos X i Z els normalitza i els multiplica per la velocitat
+    //    rb.MovePosition(transform.position + move * Time.deltaTime); // Mou el personatge a la seva posicio mes el delta de moviment multiplicat per el deltaTime
+    //}
 
     private void HandleJump()
     {
