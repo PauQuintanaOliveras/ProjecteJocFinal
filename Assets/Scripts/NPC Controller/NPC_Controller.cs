@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement; 
 
 [RequireComponent(typeof(Rigidbody))]
 public class NPC_Controller : MonoBehaviour
 {
+    public string nom;
     public bool isDead = false;
     public Slider slider;
     public Animator animator;
@@ -103,7 +105,11 @@ public class NPC_Controller : MonoBehaviour
         if (!isStunned) //si no estas atordit
             StartCoroutine(StunCoroutine()); //engega la corrutina de aturdiment
             slider.value = slider.value >= damage ? slider.value -= damage : slider.value = 0;
-            if (slider.value < 1) isDead = true;
+            if (slider.value < 1){
+
+             isDead = true;
+             SceneManager.LoadScene(nom);
+            }
     }
 
     private IEnumerator StunCoroutine()
