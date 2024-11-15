@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class NPC_Controller : MonoBehaviour
 {
+    public bool isDead = false;
+    public Slider slider;
     public Animator animator;
     public float speed = 5.0f;
     public float jumpForce = 5.0f;
@@ -14,7 +17,7 @@ public class NPC_Controller : MonoBehaviour
     public float stunDuration = 0.5f;
     public float uprightCorrectionSpeed = 5f;
     public float punchForce = 5f;
-
+    public float damage = 5f;
     private Rigidbody rb;
     private bool isGrounded = true;
     public bool isStunned = false;
@@ -33,7 +36,7 @@ public class NPC_Controller : MonoBehaviour
 
     void Update()
     {
-        if (isStunned) return;
+        if (isStunned || isDead) return;
 
         HandleMovement();
         HandleJump();
@@ -73,7 +76,7 @@ public class NPC_Controller : MonoBehaviour
 
         if (eTarget != null)
         {
-            eTarget.GetPunched();
+            eTarget.GetPunched(damage);
         }
 
         Rigidbody pTarget = target.GetComponent<Rigidbody>();
@@ -85,10 +88,12 @@ public class NPC_Controller : MonoBehaviour
         
     }
 
-    public void GetPunched()
+    public void GetPunched(float damage)
     {
-        if (!isStunned)
-            StartCoroutine(StunCoroutine());
+        if (!isStunned) //si no estas atordit
+            StartCoroutine(StunCoroutine()); //engega la corrutina de aturdiment
+            slider.value = slider.value >= damage ? slider.value -= damage : slider.value = 0;
+            if (slider.value < 1) isDead = true;
     }
 
     private IEnumerator StunCoroutine()

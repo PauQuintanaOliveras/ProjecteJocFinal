@@ -34,7 +34,7 @@ public class AINavigation : MonoBehaviour
 
     private void Update()
     {
-        if (npc_controller.isStunned) return;
+        if (npc_controller.isStunned || npc_controller.isDead) return;
         if (player != null)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);

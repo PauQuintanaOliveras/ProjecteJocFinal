@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using System.Collections;
-using UnityEngine;
-
-using System.Collections;
-using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class FightingCharacterController : MonoBehaviour
 {
+    public bool isDead = false;
+    public Slider slider;
+    public float damage = 5.0f;
     public bool isCameraReversed = true;
     //Multiplicador de la velocitat
     public float speed = 5.0f;
@@ -47,7 +45,7 @@ public class FightingCharacterController : MonoBehaviour
 
     void Update()
     {
-        if (isStunned) return; //Si el persontage esta aturdit no es podra moure
+        if (isStunned || isDead) return; //Si el persontage esta aturdit no es podra moure
 
         HandleMovement();   //Gestiona el moviment del jugador
         HandleJump();       //Gestiona el salt del jugador
@@ -103,7 +101,7 @@ public class FightingCharacterController : MonoBehaviour
                 NPC_Controller eTarget = hit.collider.GetComponent<NPC_Controller>(); //agafa el controllador del objectiu
                 if (eTarget != null)//si no es null
                 {
-                    eTarget.GetPunched(); // activa el metoda de ser pegat del objectiu.
+                    eTarget.GetPunched(damage); // activa el metoda de ser pegat del objectiu.
                     Debug.Log("PJ: Cop de puny");
                 }
                 Rigidbody pTarget = hit.collider.GetComponent<Rigidbody>();
@@ -118,10 +116,12 @@ public class FightingCharacterController : MonoBehaviour
         }
     }
     //gestiona ser colpejat
-    public void GetPunched()
+    public void GetPunched(float damage)
     {
         if (!isStunned) //si no estas atordit
             StartCoroutine(StunCoroutine()); //engega la corrutina de aturdiment
+            slider.value = slider.value >= damage ? slider.value -= damage : slider.value = 0;
+            if (slider.value < 1) isDead = true;
     }
     //gestiona ser atordit, espera un numero prestablert de segons
     private IEnumerator StunCoroutine()
