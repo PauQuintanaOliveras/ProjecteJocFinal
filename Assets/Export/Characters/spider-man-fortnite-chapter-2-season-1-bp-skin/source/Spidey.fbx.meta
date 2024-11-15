@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_MED_Parallel_Comic_Body
-    second: {fileID: 2100000, guid: 2c9c34f1aa7910e46aa4446950e0b755, type: 2}
+    second: {fileID: 2100000, guid: 10942b1eeee79864b8871c6d83053743, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_MED_Parallel_Comic_Head
-    second: {fileID: 2100000, guid: 8e825fd9a8d07e24d89d7716046a1e31, type: 2}
+    second: {fileID: 2100000, guid: 7e7af2f6165cf34489706afd43e33934, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -739,7 +739,8 @@ ModelImporter:
     - name: lowerarm_twist_01_l
       parentName: lowerarm_l
       position: {x: 0.000000019073486, y: 0.17854874, z: 0.000000047683713}
-      rotation: {x: 0.00000045169128, y: -0.0000011101362, z: -0.000000118277924, w: 1}
+      rotation: {x: 0.00000045169128, y: -0.0000011101362, z: -0.000000118277924,
+        w: 1}
       scale: {x: 1, y: 1.0000002, z: 1.0000001}
     - name: lowerarm_twist_01_l_end
       parentName: lowerarm_twist_01_l
@@ -769,7 +770,8 @@ ModelImporter:
     - name: upperarm_twist_01_l
       parentName: upperarm_l
       position: {x: -0, y: 0.00004093647, z: -0.0000001835823}
-      rotation: {x: -0.00000008940694, y: 0.00000021234148, z: 0.000000036787227, w: 1}
+      rotation: {x: -0.00000008940694, y: 0.00000021234148, z: 0.000000036787227,
+        w: 1}
       scale: {x: 0.9999997, y: 1.0000001, z: 1}
     - name: deform_deltoid_fr_l
       parentName: upperarm_twist_01_l
@@ -804,7 +806,8 @@ ModelImporter:
     - name: deform_pectoral_fr_l
       parentName: clavicle_l
       position: {x: 0.000000023841856, y: 0.09390464, z: 0.00000010758638}
-      rotation: {x: 0.00000008940694, y: -0.00000029057253, z: 0.000000033527602, w: 1}
+      rotation: {x: 0.00000008940694, y: -0.00000029057253, z: 0.000000033527602,
+        w: 1}
       scale: {x: 1.0000001, y: 0.9999999, z: 0.99999994}
     - name: deform_pectoral_fr_l_end
       parentName: deform_pectoral_fr_l
@@ -974,7 +977,8 @@ ModelImporter:
     - name: lowerarm_twist_02_r
       parentName: lowerarm_r
       position: {x: -0.0000000667572, y: 0.09619919, z: -0.000000052452087}
-      rotation: {x: -0.00000044144673, y: 0.00000066682674, z: -0.000000102882005, w: 1}
+      rotation: {x: -0.00000044144673, y: 0.00000066682674, z: -0.000000102882005,
+        w: 1}
       scale: {x: 1, y: 1.0000001, z: 1.0000004}
     - name: lowerarm_twist_02_r_end
       parentName: lowerarm_twist_02_r
@@ -994,12 +998,14 @@ ModelImporter:
     - name: upperarm_twist_01_r
       parentName: upperarm_r
       position: {x: 0.000000009536743, y: 0.00004110813, z: -0.000000104904174}
-      rotation: {x: 0.000000059604623, y: -0.00000014714891, z: -0.000000032130618, w: 1}
+      rotation: {x: 0.000000059604623, y: -0.00000014714891, z: -0.000000032130618,
+        w: 1}
       scale: {x: 0.99999964, y: 1.0000001, z: 1.0000006}
     - name: deform_deltoid_fr_r
       parentName: upperarm_twist_01_r
       position: {x: -0.00000009730458, y: 0.024512071, z: -0.0000000047683715}
-      rotation: {x: -0.00000038743013, y: 0.00000022165469, z: -0.0000000051222355, w: 1}
+      rotation: {x: -0.00000038743013, y: 0.00000022165469, z: -0.0000000051222355,
+        w: 1}
       scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
     - name: deform_deltoid_fr_r_end
       parentName: deform_deltoid_fr_r
@@ -1009,7 +1015,8 @@ ModelImporter:
     - name: upperarm_twist_02_r
       parentName: upperarm_r
       position: {x: -0.000000011920928, y: 0.13794173, z: 0.0000000023841857}
-      rotation: {x: -0.00000029802317, y: 0.000000117346616, z: -0.00000005541368, w: 1}
+      rotation: {x: -0.00000029802317, y: 0.000000117346616, z: -0.00000005541368,
+        w: 1}
       scale: {x: 0.9999996, y: 1.0000002, z: 1.0000006}
     - name: upperarm_twist_02_r_end
       parentName: upperarm_twist_02_r
@@ -1029,7 +1036,8 @@ ModelImporter:
     - name: deform_pectoral_fr_r
       parentName: clavicle_r
       position: {x: 0.000000057220458, y: 0.09390006, z: 0.00000013500451}
-      rotation: {x: -0.00000041723243, y: 0.00000026822084, z: -0.00000025331968, w: 1}
+      rotation: {x: -0.00000041723243, y: 0.00000026822084, z: -0.00000025331968,
+        w: 1}
       scale: {x: 0.9999999, y: 0.9999998, z: 1.0000001}
     - name: deform_pectoral_fr_r_end
       parentName: deform_pectoral_fr_r
