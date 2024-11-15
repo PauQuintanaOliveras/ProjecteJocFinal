@@ -10,13 +10,14 @@ public class NPC_Controller : MonoBehaviour
     public float speed = 5.0f;
     public float jumpForce = 5.0f;
     public float punchRange = 2.0f;
-    public float punchCooldown = 1.0f;
+    public float punchCooldown = 3.0f;
     public float stunDuration = 0.5f;
     public float uprightCorrectionSpeed = 5f;
+    public float punchForce = 5f;
 
     private Rigidbody rb;
     private bool isGrounded = true;
-    private bool isStunned = false;
+    public bool isStunned = false;
     private float lastPunchTime = -1f;
 
     void Start()
@@ -64,7 +65,7 @@ public class NPC_Controller : MonoBehaviour
 
         lastPunchTime = Time.time;
         animator.SetBool("Atacar", true);
-        Debug.Log("Cop de Puny");
+        Debug.Log("Enemic: Cop de Puny");
 
         FightingCharacterController eTarget = target.GetComponent<FightingCharacterController>();
 
@@ -79,7 +80,7 @@ public class NPC_Controller : MonoBehaviour
         if (pTarget != null)
         {
             Vector3 attackDirection = (target.transform.position - transform.position).normalized;
-            pTarget.AddForce(attackDirection * 10f, ForceMode.Impulse);
+            pTarget.AddForce(attackDirection * punchForce, ForceMode.Impulse);
         }
         
     }
