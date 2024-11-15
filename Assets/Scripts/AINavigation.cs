@@ -7,6 +7,7 @@ public class AINavigation : MonoBehaviour
  public UnityEngine.AI.NavMeshAgent agent; // Agente del NavMesh
     public Transform player;   // Referencia al jugador
     public float followRange = 10f; // Distancia máxima para empezar a seguir al jugador
+    private NPC_Controller npc_controller;
 
     private void Start()
     {
@@ -25,10 +26,15 @@ public class AINavigation : MonoBehaviour
                 player = playerObject.transform;
             }
         }
+        npc_controller = GetComponent<NPC_Controller>();
+        if (npc_controller == null){
+            Debug.Log("NPC_Controllet not found");
+        }
     }
 
     private void Update()
     {
+        if (npc_controller.isStunned) return;
         if (player != null)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);

@@ -11,6 +11,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class FightingCharacterController : MonoBehaviour
 {
+    public bool isCameraReversed = true;
     //Multiplicador de la velocitat
     public float speed = 5.0f;
     //Quantitat de força aplicada al personatge al saltar
@@ -58,7 +59,7 @@ public class FightingCharacterController : MonoBehaviour
 {
     float moveX = Input.GetAxis("Horizontal"); // Agafa la delta de moviment del control horizontal
     float moveZ = Input.GetAxis("Vertical"); // Agafa la delta de moviment del control frontal 
-
+    if (isCameraReversed) {moveX *= -1; moveZ *= -1;}
     Vector3 move = new Vector3(moveX, 0, moveZ).normalized * speed; // Calcula el vector de moviment
     rb.MovePosition(transform.position + move * Time.deltaTime); // Mou el personatge
 
@@ -99,10 +100,11 @@ public class FightingCharacterController : MonoBehaviour
             RaycastHit hit; //Llança un raycast
             if (Physics.Raycast(transform.position, transform.forward, out hit, punchRange))//detecta si el raig colisiona amb alguna cosa dins el rang del personage
             {
-                FightingCharacterController eTarget = hit.collider.GetComponent<FightingCharacterController>(); //agafa el controllador del objectiu
+                NPC_Controller eTarget = hit.collider.GetComponent<NPC_Controller>(); //agafa el controllador del objectiu
                 if (eTarget != null)//si no es null
                 {
                     eTarget.GetPunched(); // activa el metoda de ser pegat del objectiu.
+                    Debug.Log("PJ: Cop de puny");
                 }
                 Rigidbody pTarget = hit.collider.GetComponent<Rigidbody>();
                 if(pTarget != null){
