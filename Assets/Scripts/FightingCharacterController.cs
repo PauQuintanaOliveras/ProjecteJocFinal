@@ -140,9 +140,11 @@ public class FightingCharacterController : MonoBehaviour
     //gestiona ser atordit, espera un numero prestablert de segons
     private IEnumerator StunCoroutine()
     {
+        animator.SetBool("Stun", true);
         isStunned = true;
         yield return new WaitForSeconds(stunDuration);
         isStunned = false;
+         animator.SetBool("Stun", false);
     }
     //quan colisiones amb un objecte terra et torna habilitar el salt
     private void OnCollisionEnter(Collision collision)
