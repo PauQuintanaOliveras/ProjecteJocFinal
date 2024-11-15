@@ -108,7 +108,7 @@ public class FightingCharacterController : MonoBehaviour
                 NPC_Controller eTarget = hit.collider.GetComponent<NPC_Controller>(); //agafa el controllador del objectiu
                 if (eTarget != null)//si no es null
                 {
-                    eTarget.GetPunched(damage); // activa el metoda de ser pegat del objectiu.
+                    eTarget.GetPunched(20); // activa el metoda de ser pegat del objectiu.
                     Debug.Log("PJ: Cop de puny");
                 }
                 Rigidbody pTarget = hit.collider.GetComponent<Rigidbody>();
