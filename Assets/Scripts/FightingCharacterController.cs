@@ -20,7 +20,7 @@ public class FightingCharacterController : MonoBehaviour
     //Temps despera per a poder tornar a pegar
     public float punchCooldown = 1.0f;
     //Força amb la que el personatge empeñara quan pegui.
-    public float hitForce = 1.0f;
+    public float hitForce = 15f;
     //Segons de aturdiment que rebra al ser pegat
     public float stunDuration = 0.5f;
     //Velocitat a la que s'aixeca quan cau
